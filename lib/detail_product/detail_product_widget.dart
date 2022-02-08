@@ -39,8 +39,8 @@ class _DetailProductWidgetState extends State<DetailProductWidget> {
 
   Future<void> loadPdf() async {
     try {
-      // var result = await PDFDocument.fromURL(productModel.pdf);
-      var result = await PDFDocument.fromURL(MyConstant.testPdf);
+      var result = await PDFDocument.fromURL(productModel.pdf);
+      // var result = await PDFDocument.fromURL(MyConstant.testPdf);
       setState(() {
         pdfDocument = result;
       });
@@ -284,7 +284,7 @@ class _DetailProductWidgetState extends State<DetailProductWidget> {
                                                           .override(
                                                         fontFamily: 'PLSPRO001',
                                                         color: FlutterFlowTheme
-                                                            .primaryColor,
+                                                            .tertiaryColor,
                                                         fontSize: 20,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -309,9 +309,9 @@ class _DetailProductWidgetState extends State<DetailProductWidget> {
                                       width: MediaQuery.of(context).size.width *
                                           0.35,
                                       height: 120,
-                                      decoration: BoxDecoration(
-                                        color: Color(0xFFEEEEEE),
-                                      ),
+                                      // decoration: BoxDecoration(
+                                      //   color: Color(0xFFEEEEEE),
+                                      // ),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -321,15 +321,15 @@ class _DetailProductWidgetState extends State<DetailProductWidget> {
                                             height: 100,
                                             fit: BoxFit.contain,
                                           ),
-                                          Text(
-                                            'product pic',
-                                            style: FlutterFlowTheme.bodyText1
-                                                .override(
-                                              fontFamily: 'PLSPRO001',
-                                              fontSize: 18,
-                                              useGoogleFonts: false,
-                                            ),
-                                          )
+                                          // Text(
+                                          //   'product pic',
+                                          //   style: FlutterFlowTheme.bodyText1
+                                          //       .override(
+                                          //     fontFamily: 'PLSPRO001',
+                                          //     fontSize: 18,
+                                          //     useGoogleFonts: false,
+                                          //   ),
+                                          // )
                                         ],
                                       ),
                                     ),
@@ -345,7 +345,7 @@ class _DetailProductWidgetState extends State<DetailProductWidget> {
                 ),
               ),
               pdfDocument == null
-                  ? Text('No pdf')
+                  ?SizedBox()
                   : Expanded(
                       child: PDFViewer(
                         document: pdfDocument,
